@@ -73,6 +73,8 @@ exports.deployCustomization = deployCustomization;
 const deployPlugin = (option) => {
     const authJSON = (0, jsonfile_1.readFileSync)(`${option.appName}/auth.json`);
     spawnSync('./node_modules/.bin/kintone-plugin-uploader', [
+        '--puppeteer-ignore-default-args',
+        '--disable-extensions',
         '--base-url',
         authJSON.domain,
         '--username',
